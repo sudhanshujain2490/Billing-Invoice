@@ -1,52 +1,64 @@
-# Prerequisites
-*.d
+//Sample Minimalist Billing Invoice
+//Micro Project
+//Structure
+#include<stdio.h>
+#include<conio.h>
+#include<time.h>
+#include<string.h>
+#include <stdlib.h>
+struct product
+{
+    int mrp;
+    int qty;
+    char pname[50];
+};struct product p[10];
+int main()
+{
+    int i,n,s,a,cphone;
+    char cname[50];
+    time_t t;
+    time(&t);
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+    printf("Enterd limit \n");
+    scanf("%d",&n);
+    for (i=0;i<n ;i++)
+    {
+        printf("\nEnter Product Name : \t");
+        scanf("%s",&p[i].pname);
+        printf("\nEnter MRP : \t");
+        scanf("%d",&p[i].mrp);
+        printf("\nEnter Qty : \t");
+        scanf("%d",&p[i].qty);
+    }
 
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+    //clrscr();
+    //system(cls);
+    //system("clear");
+	system("cls");
+    printf("\n-------- FOR SHOP NAME --------\n");
+    printf("\n_______________________________\n");
+    printf("Name :\t");
+    scanf("%s",&cname);
+    printf("\nPhone :\t");
+    scanf("%d",&cphone);
+    printf("\ndate and time: %s", ctime(&t));
+    printf("\n\tInvoice No. : %d",a);
+    printf("\n_______________________________\n");
+    printf("\n Name \t Qty \t Price \t Amount");
+    printf("\n_______________________________\n");
+    for (i=0;i<n;i++ )
+    {
+        puts(p[i].pname);
+        printf("\t %d",p[i].qty);
+        printf("\t %d",p[i].mrp);
+        printf("\t %d",p[i].qty*p[i].mrp);
+        s = s + p[i].qty * p[i].mrp;
+        printf("\n");
+    }
+    printf("\n________________________________\n");
+    printf("\n\t  Total amount : %d",s);
+    printf("\n________________________________\n");
+    printf(" Thank You \t\t T&C*");
+    getch();
+    return 0;
+}
